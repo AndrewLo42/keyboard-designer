@@ -81,10 +81,10 @@ span {
 }
 
 .key__shift-left {
-  width: 100px;
+  width: 110px;
 }
 .key__shift-right {
-  width: 102px;
+  width: 92px;
 }
 
 .key__spacebar {
@@ -101,4 +101,25 @@ span {
 
 .feather {
   margin-top: 10px;
+}
+
+
+.color-picker-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem 5rem;
+}
+
+
+.color-picker-title {
+  margin-bottom: 1rem;
+}
+.twitter-picker,
+.hue-picker {
+  margin: auto;
+}
+
+.twitter-picker {
+  margin-top: 25px;
 }

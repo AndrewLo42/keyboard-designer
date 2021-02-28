@@ -1,15 +1,34 @@
 import React from 'react';
+import styled from 'styled-components';
+
+interface Props {
+  caseColor: string;
+  mainKeyColor: string;
+  textColor: string;
+}
 
 export const KeyBoard: React.FC<Props> = (props) => {
+  const MainKey = styled.div`
+    background: ${props => props.color};
+    color: ${props => props.textColor};
+  `;
+
+  const CaseColor = styled.div`
+    border-color: ${props => props.color};
+  `;
+
+  const EscKey = styled.div`
+    background: ${props => props.different ? props.escColor : props.color}
+  `;
   return(
-    <div className="keyboard">
+    <CaseColor className="keyboard" color={props.caseColor} >
       <div className="row">
-        <div className="key key__esc">
+        <EscKey className="key key__esc">
           <i data-feather="x"></i>
-        </div>
-        <div className="key key__symbols">
+        </EscKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           ! <span> 1 </span>
-        </div>
+        </MainKey>
         <div className="key key__symbols">
           @ <span> 2 </span>
         </div>
@@ -237,7 +256,7 @@ export const KeyBoard: React.FC<Props> = (props) => {
           {/* <i data-feather="arrow-right"></i> */}
         </div>
       </div>
-     </div>
+     </CaseColor>
   );
 
 }

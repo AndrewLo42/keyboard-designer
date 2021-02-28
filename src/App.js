@@ -2,29 +2,30 @@ import logo from './logo.svg';
 import './App.css';
 import { KeyBoard } from './components/Keyboard';
 import { ColorPicker } from './components/ColorPicker';
+import React, {useState} from 'react';
 
 function App() {
+  const [caseColor, setCaseColor] = useState("#000000");
+  const [mainKeyCapColor, setMainColor] = useState("#F1F1F1");
+  const [textColor, setTextColor] = useState("#000000");
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
       <header>
         Design your 65% Keeb
       </header>
-        <KeyBoard/>
-        <ColorPicker />
+        <KeyBoard
+          caseColor={caseColor}
+          mainKeyColor={mainKeyCapColor}
+          textColor={textColor}
+        />
+        <ColorPicker
+          caseColor={caseColor}
+          setCaseColor={setCaseColor}
+          mainKeyColor={mainKeyCapColor}
+          setMainKeyColor={setMainColor}
+          textColor={textColor}
+          setTextColor={setTextColor}
+        />
     </div>
   );
 }
