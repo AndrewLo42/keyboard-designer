@@ -8,6 +8,8 @@ function App() {
   const [caseColor, setCaseColor] = useState("#000000");
   const [mainKeyCapColor, setMainColor] = useState("#F1F1F1");
   const [textColor, setTextColor] = useState("#000000");
+  const [modKeyColor, setModColor] = useState("#F1F1F1");
+  const [diffMod, setDiffMod] = useState(false);
   return (
     <div className="App">
       <header>
@@ -17,6 +19,8 @@ function App() {
           caseColor={caseColor}
           mainKeyColor={mainKeyCapColor}
           textColor={textColor}
+          modKeyColor={modKeyColor}
+          diffMod={diffMod}
         />
         <ColorPicker
           caseColor={caseColor}
@@ -25,6 +29,10 @@ function App() {
           setMainKeyColor={setMainColor}
           textColor={textColor}
           setTextColor={setTextColor}
+          modKeyColor={modKeyColor}
+          setModColor={setModColor}
+          diffMod={diffMod}
+          setDiffMod={setDiffMod}
         />
     </div>
   );
