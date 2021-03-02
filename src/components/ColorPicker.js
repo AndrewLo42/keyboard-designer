@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {HuePicker, TwitterPicker} from 'react-color';
 import styled from 'styled-components';
 import CheckboxToggle from './CheckBox';
+import Switch from './ToggleSwitch';
 
 interface Props {
   caseColor: string;
@@ -26,11 +27,13 @@ interface Props {
   const OptionButton = styled.div`
     margin: 10px 25px;
     padding: 10px 25px;
-    border: 2px solid gray;
+    border: ${props => props.view === props.currentView ? `2.5px solid ${props.caseColor}` : "2.5px solid gray"};
     border-radius: 5px;
     background: ${props => props.view === props.currentView ? "gray" : "white"};
+    transition: all 200ms ease-in-out;
     &:hover {
       cursor: pointer;
+      background: #C3D8C7;
     }
   `;
 
@@ -70,7 +73,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
         handleChangeComplete={handleChangeCaseColor}
         onChange={handleChangeCaseColor}
         triangle="hide"
-        colors={['#4D4D4D', "#000000", "#F4F1F1"]}
+        colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
       />
     </div>
   );
@@ -88,7 +91,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
           handleChangeComplete={handleChangeMainColor}
           onChange={handleChangeMainColor}
           triangle="hide"
-          colors={['#4D4D4D', "#000000", "#F4F1F1"]}
+          colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
         />
 
       <div className="color-picker-title">Key Text Color</div>
@@ -102,7 +105,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
           handleChangeComplete={handleChangeTextColor}
           onChange={handleChangeTextColor}
           triangle="hide"
-          colors={['#4D4D4D', "#000000", "#F4F1F1"]}
+          colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
         />
     </div>
   )
@@ -110,19 +113,23 @@ export const ColorPicker: React.FC<Props> = (props) => {
   const renderMiscPicker = (
     <div className="color-picker-container">
       <CheckboxToggle labelText="Different Modifier Colors" handleClick={props.setDiffMod} startChecked={props.diffMod}/>
-      <div className="color-picker-title">Modifier Key Color</div>
-      <HuePicker
-        color={props.modKeyColor}
-        handleChangeComplete={handleChangeModColor}
-        onChange={handleChangeModColor}
-      />
-      <TwitterPicker
-        color={props.modKeyColor}
-        handleChangeComplete={handleChangeModColor}
-        onChange={handleChangeModColor}
-        triangle="hide"
-        colors={['#4D4D4D', "#000000", "#F4F1F1"]}
-      />
+      {props.diffMod ? (
+        <React.Fragment>
+          <h5 className="color-picker-title">Modifier Key Color</h5>
+          <HuePicker
+            color={props.modKeyColor}
+            handleChangeComplete={handleChangeModColor}
+            onChange={handleChangeModColor}
+          />
+          <TwitterPicker
+            color={props.modKeyColor}
+            handleChangeComplete={handleChangeModColor}
+            onChange={handleChangeModColor}
+            triangle="hide"
+            colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
+          />
+        </React.Fragment>
+      ) : null}
     </div>
   )
 
@@ -141,16 +148,17 @@ export const ColorPicker: React.FC<Props> = (props) => {
   return (
     <div>
       <OptionContainer>
-        <OptionButton onClick={() => setView("case") } view="case" currentView={colorView}>
+        <OptionButton onClick={() => setView("case") } view="case" currentView={colorView} caseColor={props.caseColor}>
           Case
         </OptionButton>
-        <OptionButton onClick={() => setView("keycaps")} view="keycaps" currentView={colorView}>
+        <OptionButton onClick={() => setView("keycaps")} view="keycaps" currentView={colorView} caseColor={props.caseColor}>
           Keycaps
         </OptionButton>
-        <OptionButton onClick={() => setView("misc")} view="misc" currentView={colorView}>
+        <OptionButton onClick={() => setView("misc")} view="misc" currentView={colorView} caseColor={props.caseColor}>
           Misc
         </OptionButton>
       </OptionContainer>
+      <Switch />
       {renderColorPicker()}
     </div>
   );

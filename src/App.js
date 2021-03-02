@@ -3,6 +3,7 @@ import './App.css';
 import { KeyBoard } from './components/Keyboard';
 import { ColorPicker } from './components/ColorPicker';
 import React, {useState} from 'react';
+import {exportComponentAsPNG} from 'react-component-export-image';
 
 function App() {
   const [caseColor, setCaseColor] = useState("#000000");
@@ -10,6 +11,7 @@ function App() {
   const [textColor, setTextColor] = useState("#000000");
   const [modKeyColor, setModColor] = useState("#F1F1F1");
   const [diffMod, setDiffMod] = useState(false);
+
   return (
     <div className="App">
       <header>
