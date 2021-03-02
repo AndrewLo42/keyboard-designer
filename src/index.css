@@ -116,6 +116,7 @@ span {
 .color-picker-title {
   margin-bottom: 1rem;
 }
+.chrome-picker,
 .twitter-picker,
 .hue-picker {
   margin: auto;

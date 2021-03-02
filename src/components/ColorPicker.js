@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {HuePicker, TwitterPicker} from 'react-color';
+import {HuePicker, TwitterPicker, ChromePicker} from 'react-color';
 import styled from 'styled-components';
 import CheckboxToggle from './CheckBox';
 import Switch from './ToggleSwitch';
@@ -42,6 +42,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
   // const [caseColor, setCaseColor] = useState("#fff");
   // const [mainKeyCapColor, setMainColor] = useState("#fff");
   const [colorView, setView] = useState("case");
+  const [showAdvanced, setAdvanced] = useState(false);
 
   const handleChangeCaseColor = (newColor) => {
     // console.log('hi')
@@ -63,11 +64,20 @@ export const ColorPicker: React.FC<Props> = (props) => {
   const renderCasePicker =  (
     <div className="color-picker-container">
       <div className="color-picker-title">Case Color</div>
-      <HuePicker
-        color={props.caseColor}
-        handleChangeComplete={handleChangeCaseColor}
-        onChange={handleChangeCaseColor}
-      />
+      {showAdvanced ? (
+        <ChromePicker
+          color={props.caseColor}
+          handleChangeComplete={handleChangeCaseColor}
+          onChange={handleChangeCaseColor}
+        />
+      ) : (
+        <HuePicker
+          color={props.caseColor}
+          handleChangeComplete={handleChangeCaseColor}
+          onChange={handleChangeCaseColor}
+        />
+      )}
+
       <TwitterPicker
         color={props.caseColor}
         handleChangeComplete={handleChangeCaseColor}
@@ -81,11 +91,19 @@ export const ColorPicker: React.FC<Props> = (props) => {
  const renderKeysPicker = (
    <div className="color-picker-container">
       <div className="color-picker-title">Keycap Color</div>
-        <HuePicker
-          color={props.mainKeyColor}
-          handleChangeComplete={handleChangeMainColor}
-          onChange={handleChangeMainColor}
-        />
+        {showAdvanced ? (
+          <ChromePicker
+            color={props.mainKeyColor}
+            handleChangeComplete={handleChangeMainColor}
+            onChange={handleChangeMainColor}
+          />
+        ) : (
+          <HuePicker
+            color={props.mainKeyColor}
+            handleChangeComplete={handleChangeMainColor}
+            onChange={handleChangeMainColor}
+          />
+        )}
         <TwitterPicker
           color={props.mainKeyColor}
           handleChangeComplete={handleChangeMainColor}
@@ -95,11 +113,19 @@ export const ColorPicker: React.FC<Props> = (props) => {
         />
 
       <div className="color-picker-title">Key Text Color</div>
-        <HuePicker
-          color={props.textColor}
-          handleChangeComplete={handleChangeTextColor}
-          onChange={handleChangeTextColor}
-        />
+        {showAdvanced ? (
+          <ChromePicker
+            color={props.textColor}
+            handleChangeComplete={handleChangeTextColor}
+            onChange={handleChangeTextColor}
+          />
+        ) : (
+          <HuePicker
+            color={props.textColor}
+            handleChangeComplete={handleChangeTextColor}
+            onChange={handleChangeTextColor}
+          />
+        )}
         <TwitterPicker
           color={props.textColor}
           handleChangeComplete={handleChangeTextColor}
@@ -116,11 +142,20 @@ export const ColorPicker: React.FC<Props> = (props) => {
       {props.diffMod ? (
         <React.Fragment>
           <h5 className="color-picker-title">Modifier Key Color</h5>
-          <HuePicker
-            color={props.modKeyColor}
-            handleChangeComplete={handleChangeModColor}
-            onChange={handleChangeModColor}
-          />
+            {showAdvanced ? (
+              <ChromePicker
+                color={props.modKeyColor}
+                handleChangeComplete={handleChangeModColor}
+                onChange={handleChangeModColor}
+              />
+            ) : (
+              <HuePicker
+                color={props.modKeyColor}
+                handleChangeComplete={handleChangeModColor}
+                onChange={handleChangeModColor}
+              />
+            )}
+
           <TwitterPicker
             color={props.modKeyColor}
             handleChangeComplete={handleChangeModColor}
@@ -158,7 +193,9 @@ export const ColorPicker: React.FC<Props> = (props) => {
           Misc
         </OptionButton>
       </OptionContainer>
-      <Switch />
+      <OptionContainer>
+        <Switch on={showAdvanced} handleOn={setAdvanced} labelText={"Toggle Advanced Settings"}/>
+      </OptionContainer>
       {renderColorPicker()}
     </div>
   );
