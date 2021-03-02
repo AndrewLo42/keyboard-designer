@@ -32,7 +32,7 @@ span {
   width: 834px;
   height: 262px;
   margin: 0px auto;
-  margin-top: 100px;
+  margin-top: 50px;
   border: 8px solid #000000;
   border-radius: 10px;
   background: #000000;
@@ -116,6 +116,7 @@ span {
 .color-picker-title {
   margin-bottom: 1rem;
 }
+.chrome-picker,
 .twitter-picker,
 .hue-picker {
   margin: auto;

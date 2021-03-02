@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 const StyledCheckbox = styled.div`
   display: inline-block;
@@ -20,11 +19,12 @@ const CheckboxContainer = styled.div`
 
 const CheckboxLabel = styled.label`
   cursor: pointer;
-  width: 100%;
-  margin: 10px;
+  width: 250px;
+  margin: 10px auto;
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 900px) {
     margin-left: 0;
@@ -36,7 +36,14 @@ const LabelText = styled.span`
   font-weight: ${props => props.bolded ? "bold" : null};
 `;
 
-const CheckboxToggle = ({labelText, handleClick, startChecked, boldedText}) => {
+interface Props {
+  labelText: string;
+  handleClick: (toggle: boolean) => void;
+  startChecked: boolean;
+  boldedText: boolean;
+}
+
+const CheckboxToggle: React.FC<Props> = ({labelText, handleClick, startChecked, boldedText}) => {
   const [checked, setChecked] = useState(startChecked);
   const handleCheck = () => {
     handleClick(!checked);
@@ -44,7 +51,7 @@ const CheckboxToggle = ({labelText, handleClick, startChecked, boldedText}) => {
   }
   // const filterList = charityFilterList;
   return (
-    <CheckboxLabel onClick={handleCheck}>
+    <CheckboxLabel aria-label="Modifier Toggle Checkbox" onClick={handleCheck}>
       <CheckboxContainer >
         {/* <HiddenCheckbox checked={checked} onChange={()=>console.log("change")} /> */}
         <StyledCheckbox checked={startChecked} />
@@ -53,13 +60,5 @@ const CheckboxToggle = ({labelText, handleClick, startChecked, boldedText}) => {
     </CheckboxLabel>
   )
 };
-
-// CheckboxToggle.propTypes = {
-//   labelText: PropTypes.string,
-//   handleClick: PropTypes.func,
-//   startChecked: PropTypes.bool,
-//   boldedText: PropTypes.bool
-
-// };
 
 export default CheckboxToggle;
