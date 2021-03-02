@@ -54,6 +54,7 @@ span {
   text-align: center;
   margin-left: 2px;
   border-radius: 4px;
+  user-select: none;
 }
 
 .key__symbols {

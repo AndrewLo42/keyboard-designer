@@ -5,256 +5,264 @@ interface Props {
   caseColor: string;
   mainKeyColor: string;
   textColor: string;
+  modKeyColor: string;
+  diffMod: boolean;
 }
 
+const MainKey = styled.div`
+  background: ${props => props.color};
+  color: ${props => props.textColor};
+`;
+
+const CaseColor = styled.div`
+  border-color: ${props => props.color};
+`;
+
+const EscKey = styled.div`
+  background: ${props => props.different ? props.escColor : props.color}
+`;
+
+const ModKey = styled.div`
+  background: ${props => props.different ? props.modColor : props.color};
+  color: ${props => props.textColor};
+`;
+
 export const KeyBoard: React.FC<Props> = (props) => {
-  const MainKey = styled.div`
-    background: ${props => props.color};
-    color: ${props => props.textColor};
-  `;
 
-  const CaseColor = styled.div`
-    border-color: ${props => props.color};
-  `;
 
-  const EscKey = styled.div`
-    background: ${props => props.different ? props.escColor : props.color}
-  `;
   return(
-    <CaseColor className="keyboard" color={props.caseColor} >
+    <CaseColor className="keyboard"  color={props.caseColor} >
       <div className="row">
-        <EscKey className="key key__esc">
-          <i data-feather="x"></i>
+        <EscKey className="key key__esc" color={props.mainKeyColor} textColor={props.textColor}>
+          Esc
         </EscKey>
-        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
+        <MainKey className="key key__symbols"  color={props.mainKeyColor} textColor={props.textColor}>
           ! <span> 1 </span>
         </MainKey>
-        <div className="key key__symbols">
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor} >
           @ <span> 2 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           # <span> 3 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           $ <span> 4 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           % <span> 5 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           ^ <span> 6 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &amp; <span> 7 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           * <span> 8 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#40; <span> 9 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#41; <span> 0 </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           _ <span> - </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           + <span> = </span>
-        </div>
-        <div className="key key__delete key__icon">
+        </MainKey>
+        <MainKey className="key key__delete key__icon" color={props.mainKeyColor} textColor={props.textColor}>
           &#8592; Backspace
           {/* <i data-feather="delete"></i> */}
-        </div>
-        <div className="key">
+        </MainKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
-        </div>
+        </ModKey>
       </div>
 
       <div className="row">
-        <div className="key key__oneandhalf">
+        <ModKey className="key key__oneandhalf" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           Tab
           {/* <i data-feather="log-in"></i> */}
-        </div>
-        <div className="key">
+        </ModKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           Q
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           W
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           E
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           R
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           T
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           Y
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           U
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           I
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           O
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           P
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#123; <span> &#91; </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#125; <span> &#93; </span>
-        </div>
-        <div className="key key__symbols key__oneandhalf">
+        </MainKey>
+        <MainKey className="key key__symbols key__oneandhalf" color={props.mainKeyColor} textColor={props.textColor}>
           | <span> \ </span>
-        </div>
-        <div className="key">
+        </MainKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
-        </div>
+        </ModKey>
       </div>
 
       <div className="row">
-        <div className="key key__caps">
+        <ModKey className="key key__caps" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           Caps
           {/* <i data-feather="meh"></i> */}
-        </div>
-        <div className="key">
+        </ModKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           A
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           S
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           D
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           F
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           G
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           H
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           J
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           K
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           L
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           : <span> ; </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           " <span> ' </span>
-        </div>
-        <div className="key key__enter">
+        </MainKey>
+        <ModKey className="key key__enter" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           Enter
-          {/* <i data-feather="corner-down-left"></i> */}
-        </div>
-        <div className="key">
+        </ModKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
-        </div>
+        </ModKey>
       </div>
 
       <div className="row">
-        <div className="key key__shift-left">
+        <ModKey className="key key__shift-left" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           Shift
-          {/* <i data-feather="arrow-up-circle"></i> */}
-        </div>
-        <div className="key">
+        </ModKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           Z
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           X
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           C
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           V
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           B
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           N
-        </div>
-        <div className="key">
+        </MainKey>
+        <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           M
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#62; <span> . </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           &#60; <span> . </span>
-        </div>
-        <div className="key key__symbols">
+        </MainKey>
+        <MainKey className="key key__symbols" color={props.mainKeyColor} textColor={props.textColor}>
           ? <span> / </span>
-        </div>
+        </MainKey>
         {/* 65% */}
-        <div className="key key__shift-right">
+        <ModKey className="key key__shift-right" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           {/* 65% shift */}
           Shift
-        </div>
-        {/* <div className="key">
+        </ModKey>
+        {/* <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
           <i data-feather="arrow-up-circle"></i>
-        </div> */}
-        <div className="key key__arrow">
+        </MainKey> */}
+        <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           {/* <i data-feather="arrow-up"></i> */}
           &#8593;
-        </div>
-        <div className="key">
-          <i data-feather="trash-2"></i>
-        </div>
+        </MainKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+
+        </ModKey>
       </div>
 
       <div className="row">
-        <div className="key key__bottom-funct">
+        <ModKey className="key key__bottom-funct" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           CTRL
-        </div>
-        <div className="key key__bottom-funct">
+        </ModKey>
+        <ModKey className="key key__bottom-funct" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           <i className="fa fa-windows"></i>
           {/* WIN */}
-          {/* <i data-feather="activity"></i> */}
-        </div>
-        <div className="key key__bottom-funct">
+        </ModKey>
+        <ModKey className="key key__bottom-funct" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
           ALT
           {/* <i data-feather="command"></i> */}
-        </div>
-        <div className="key key__spacebar">
-        </div>
-        <div className="key">
-          <i data-feather="command"></i>
-        </div>
-        <div className="key">
-          <i data-feather="activity"></i>
-        </div>
-        <div className="key">
-          <i data-feather="activity"></i>
-        </div>
-        <div className="key key__arrow">
+        </ModKey>
+        <MainKey className="key key__spacebar" color={props.mainKeyColor} textColor={props.textColor}>
+          {/* spacebar */}
+        </MainKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+          {/* <i data-feather="command"></i> */}
+        </ModKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+          {/* <i data-feather="activity"></i> */}
+        </ModKey>
+        <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+
+        </ModKey>
+        <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
           &#8592;
           {/* <i data-feather="arrow-left"></i> */}
-        </div>
-        <div className="key key__arrow">
+        </MainKey>
+        <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
           &#8595;
           {/* <i data-feather="arrow-down"></i> */}
-        </div>
-        <div className="key key__arrow">
+        </MainKey>
+        <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
           &#8594;
           {/* <i data-feather="arrow-right"></i> */}
-        </div>
+        </MainKey>
       </div>
      </CaseColor>
   );
