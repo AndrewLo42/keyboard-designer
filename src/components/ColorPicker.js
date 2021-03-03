@@ -22,7 +22,7 @@ interface Props {
     flex-direction: row;
     margin: auto;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 3rem;
   `;
   const OptionButton = styled.div`
     margin: 10px 25px;

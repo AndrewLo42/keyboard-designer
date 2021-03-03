@@ -14,9 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        Design your 65% Keeb
+      <header className="page-header">
+        Design your Keeb
       </header>
+      <main className="page-content">
         <KeyBoard
           caseColor={caseColor}
           mainKeyColor={mainKeyCapColor}
@@ -36,6 +37,11 @@ function App() {
           diffMod={diffMod}
           setDiffMod={setDiffMod}
         />
+      </main>
+      <footer className="page-footer">
+        Crevice Keebs &trade;
+      </footer>
+
     </div>
   );
 }

@@ -52,7 +52,7 @@ export const KeyBoard: React.FC<Props> = (props) => {
       <SaveButton onClick={() => exportComponentAsPNG(componentRef)}>
         Export As PNG
       </SaveButton>
-      <CaseColor className="keyboard"  color={props.caseColor} id="keyboard" ref={componentRef}>
+      <CaseColor className="keyboard box"  color={props.caseColor} id="keyboard" ref={componentRef}>
         <div className="row">
           <EscKey className="key key__esc" color={props.mainKeyColor} textColor={props.textColor}>
             Esc
@@ -95,7 +95,6 @@ export const KeyBoard: React.FC<Props> = (props) => {
           </MainKey>
           <ModKey className="key key__delete key__icon" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
             &#8592; Backspace
-            {/* <i data-feather="delete"></i> */}
           </ModKey>
           <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
@@ -105,7 +104,6 @@ export const KeyBoard: React.FC<Props> = (props) => {
         <div className="row">
           <ModKey className="key key__oneandhalf" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
             Tab
-            {/* <i data-feather="log-in"></i> */}
           </ModKey>
           <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
             Q
@@ -154,7 +152,6 @@ export const KeyBoard: React.FC<Props> = (props) => {
         <div className="row">
           <ModKey className="key key__caps" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
             Caps
-            {/* <i data-feather="meh"></i> */}
           </ModKey>
           <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
             A
@@ -236,12 +233,9 @@ export const KeyBoard: React.FC<Props> = (props) => {
             {/* 65% shift */}
             Shift
           </ModKey>
-          {/* <MainKey className="key" color={props.mainKeyColor} textColor={props.textColor}>
-            <i data-feather="arrow-up-circle"></i>
-          </MainKey> */}
           <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
-            {/* <i data-feather="arrow-up"></i> */}
             &#8593;
+            {/* up arrow */}
           </MainKey>
           <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
@@ -258,31 +252,28 @@ export const KeyBoard: React.FC<Props> = (props) => {
           </ModKey>
           <ModKey className="key key__bottom-funct" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
             ALT
-            {/* <i data-feather="command"></i> */}
           </ModKey>
           <MainKey className="key key__spacebar" color={props.mainKeyColor} textColor={props.textColor}>
             {/* spacebar */}
           </MainKey>
           <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
-            {/* <i data-feather="command"></i> */}
           </ModKey>
           <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
-            {/* <i data-feather="activity"></i> */}
           </ModKey>
           <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
 
           </ModKey>
           <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
             &#8592;
-            {/* <i data-feather="arrow-left"></i> */}
+            {/* left arrow */}
           </MainKey>
           <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
             &#8595;
-            {/* <i data-feather="arrow-down"></i> */}
+            {/* down arrow */}
           </MainKey>
           <MainKey className="key key__arrow" color={props.mainKeyColor} textColor={props.textColor}>
             &#8594;
-            {/* <i data-feather="arrow-right"></i> */}
+            {/* right arrow */}
           </MainKey>
         </div>
       </CaseColor>

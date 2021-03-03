@@ -8,8 +8,9 @@ const StyledCheckbox = styled.div`
   height: 16px;
   border-radius: 3px;
   transition: all 150ms;
-  border: ${props => !props.checked ? '1px solid black' : '1px solid green'};
-  background: ${props => !props.checked ? null : "green"};
+  border: ${props => !props.checked ? '1px solid black' : '1px solid #C3D8C7'};
+  background: ${props => !props.checked ? null : "#C3D8C7"};
+
 `;
 
 const CheckboxContainer = styled.div`
@@ -25,7 +26,7 @@ const CheckboxLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  user-select: none;
   @media screen and (max-width: 900px) {
     margin-left: 0;
   }
