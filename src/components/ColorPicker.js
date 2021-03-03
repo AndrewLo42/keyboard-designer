@@ -3,6 +3,7 @@ import {HuePicker, TwitterPicker, ChromePicker} from 'react-color';
 import styled from 'styled-components';
 import CheckboxToggle from './CheckBox';
 import Switch from './ToggleSwitch';
+import ColorComponent from './ColorChanger';
 
 interface Props {
   caseColor: string;
@@ -36,6 +37,9 @@ interface Props {
       background: #C3D8C7;
     }
   `;
+  const MiscContainer = styled.div`
+    margin-top: 10px;
+  `;
 
 export const ColorPicker: React.FC<Props> = (props) => {
 
@@ -63,107 +67,24 @@ export const ColorPicker: React.FC<Props> = (props) => {
 
   const renderCasePicker =  (
     <div className="color-picker-container">
-      <div className="color-picker-title">Case Color</div>
-      {showAdvanced ? (
-        <ChromePicker
-          color={props.caseColor}
-          handleChangeComplete={handleChangeCaseColor}
-          onChange={handleChangeCaseColor}
-        />
-      ) : (
-        <HuePicker
-          color={props.caseColor}
-          handleChangeComplete={handleChangeCaseColor}
-          onChange={handleChangeCaseColor}
-        />
-      )}
-
-      <TwitterPicker
-        color={props.caseColor}
-        handleChangeComplete={handleChangeCaseColor}
-        onChange={handleChangeCaseColor}
-        triangle="hide"
-        colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
-      />
+      <ColorComponent color={props.textColor} handleChange={handleChangeCaseColor} showAdvanced={showAdvanced} headerText="Case Color"/>
     </div>
   );
 
- const renderKeysPicker = (
-   <div className="color-picker-container">
-      <div className="color-picker-title">Keycap Color</div>
-        {showAdvanced ? (
-          <ChromePicker
-            color={props.mainKeyColor}
-            handleChangeComplete={handleChangeMainColor}
-            onChange={handleChangeMainColor}
-          />
-        ) : (
-          <HuePicker
-            color={props.mainKeyColor}
-            handleChangeComplete={handleChangeMainColor}
-            onChange={handleChangeMainColor}
-          />
-        )}
-        <TwitterPicker
-          color={props.mainKeyColor}
-          handleChangeComplete={handleChangeMainColor}
-          onChange={handleChangeMainColor}
-          triangle="hide"
-          colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
-        />
-
-      <div className="color-picker-title">Key Text Color</div>
-        {showAdvanced ? (
-          <ChromePicker
-            color={props.textColor}
-            handleChangeComplete={handleChangeTextColor}
-            onChange={handleChangeTextColor}
-          />
-        ) : (
-          <HuePicker
-            color={props.textColor}
-            handleChangeComplete={handleChangeTextColor}
-            onChange={handleChangeTextColor}
-          />
-        )}
-        <TwitterPicker
-          color={props.textColor}
-          handleChangeComplete={handleChangeTextColor}
-          onChange={handleChangeTextColor}
-          triangle="hide"
-          colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
-        />
+  const renderKeysPicker = (
+    <div className="color-picker-container">
+      <ColorComponent color={props.textColor} handleChange={handleChangeMainColor} showAdvanced={showAdvanced} headerText="Keycap Color"/>
+      <ColorComponent color={props.textColor} handleChange={handleChangeTextColor} showAdvanced={showAdvanced} headerText="Key Text Color"/>
     </div>
   )
 
   const renderMiscPicker = (
-    <div className="color-picker-container">
+    <div className="color-picker-container col">
       <CheckboxToggle labelText="Different Modifier Colors" handleClick={props.setDiffMod} startChecked={props.diffMod}/>
       {props.diffMod ? (
-        <React.Fragment>
-          <h5 className="color-picker-title">Modifier Key Color</h5>
-            {showAdvanced ? (
-              <ChromePicker
-                color={props.modKeyColor}
-                handleChangeComplete={handleChangeModColor}
-                onChange={handleChangeModColor}
-              />
-            ) : (
-              <HuePicker
-                color={props.modKeyColor}
-                handleChangeComplete={handleChangeModColor}
-                onChange={handleChangeModColor}
-              />
-            )}
-
-          <TwitterPicker
-            color={props.modKeyColor}
-            handleChangeComplete={handleChangeModColor}
-            onChange={handleChangeModColor}
-            triangle="hide"
-            colors={['#4D4D4D', "#F4F1F1", "#CFFFE5", "#FE0016", "#A482FF", "#BDDEEC", "#3EB489"]}
-          />
-        </React.Fragment>
+        <MiscContainer>
+          <ColorComponent color={props.textColor} handleChange={handleChangeModColor} showAdvanced={showAdvanced} headerText="Modifier Key Color"/>
+        </MiscContainer>
       ) : null}
     </div>
   )
