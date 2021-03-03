@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {HuePicker, TwitterPicker, ChromePicker} from 'react-color';
 import styled from 'styled-components';
 import CheckboxToggle from './CheckBox';
 import Switch from './ToggleSwitch';
@@ -23,7 +22,7 @@ interface Props {
     flex-direction: row;
     margin: auto;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   `;
   const OptionButton = styled.div`
     margin: 10px 25px;
@@ -43,13 +42,10 @@ interface Props {
 
 export const ColorPicker: React.FC<Props> = (props) => {
 
-  // const [caseColor, setCaseColor] = useState("#fff");
-  // const [mainKeyCapColor, setMainColor] = useState("#fff");
   const [colorView, setView] = useState("case");
   const [showAdvanced, setAdvanced] = useState(false);
 
   const handleChangeCaseColor = (newColor) => {
-    // console.log('hi')
     props.setCaseColor(newColor.hex);
   }
 

@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { KeyBoard } from './components/Keyboard';
 import { ColorPicker } from './components/ColorPicker';
 import React, {useState} from 'react';
-import {exportComponentAsPNG} from 'react-component-export-image';
 
 function App() {
   const [caseColor, setCaseColor] = useState("#000000");

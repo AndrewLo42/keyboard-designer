@@ -46,6 +46,9 @@ const SaveButton = styled.div`
 
 const KeyboardContainer = styled.div`
   padding: 10px;
+  width: 1032px;
+  height: 362px;
+  margin: auto;
 `;
 
 export const KeyBoard: React.FC<Props> = (props) => {
