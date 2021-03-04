@@ -8,7 +8,7 @@ const SwitchContainer = styled.div`
   cursor: pointer;
   width: 34px;
   height: 17px;
-  background: ${(props) => (props.isOn ? "gray" : "#d3d3d3")};
+  background: ${(props) => (props.isOn ? "#B7B7B7" : "#d3d3d3")};
   border-radius: 8.5px;
   position: relative;
   transition: background-color 0.2s;
@@ -20,7 +20,7 @@ const SwitchButton = styled.span`
   left: ${(props) => (props.isOn ? "calc(100% - 16px)" : "1px")};
   width: 15px;
   height: 15px;
-  background: ${(props) => (props.isOn ? "#C3D8C7" : "white")};
+  background: ${(props) => (props.isOn ? "#F1F1F1" : "white")};
   transition: 0.2s;
   border-radius: 8.5px;
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.05);

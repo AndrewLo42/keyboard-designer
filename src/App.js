@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { KeyBoard } from './components/Keyboard';
 import { ColorPicker } from './components/ColorPicker';
 import React, {useState} from 'react';
-import {exportComponentAsPNG} from 'react-component-export-image';
 
 function App() {
   const [caseColor, setCaseColor] = useState("#000000");
@@ -14,9 +12,10 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        Design your 65% Keeb
+      <header className="page-header">
+        Design your Keeb
       </header>
+      <main className="page-content">
         <KeyBoard
           caseColor={caseColor}
           mainKeyColor={mainKeyCapColor}
@@ -36,6 +35,11 @@ function App() {
           diffMod={diffMod}
           setDiffMod={setDiffMod}
         />
+      </main>
+      <footer className="page-footer">
+        Crevice Keebs &trade;
+      </footer>
+
     </div>
   );
 }
