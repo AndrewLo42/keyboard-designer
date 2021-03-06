@@ -2,6 +2,7 @@ import './App.css';
 import { KeyBoard } from './components/Keyboard';
 import { ColorPicker } from './components/ColorPicker';
 import React, {useState} from 'react';
+import Footer from './components/Footer';
 
 function App() {
   const [caseColor, setCaseColor] = useState("#000000");
@@ -36,9 +37,10 @@ function App() {
           setDiffMod={setDiffMod}
         />
       </main>
-      <footer className="page-footer">
+      <Footer />
+      {/* <footer className="page-footer">
         Crevice Keebs &trade;
-      </footer>
+      </footer> */}
 
     </div>
   );
