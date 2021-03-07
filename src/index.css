@@ -12,12 +12,6 @@ code {
     monospace;
 }
 
-/* body {
-  background-color: #FFFFFF;
-  margin-top: 50px;
-  font-family: Arial;
-} */
-
 span {
   display: block;
   margin-top: -5px;
@@ -35,7 +29,7 @@ span {
   background: #000000;
 }
 
-.row {
+.keyboard-row {
   margin-top: 2px;
   overflow: hidden;
 }
@@ -54,53 +48,48 @@ span {
   user-select: none;
 }
 
-.key__symbols {
+.key-symbols {
   line-height: 28px;
 }
 
-.key__delete {
+.key-delete {
   width: 100px;
 }
 
-.key__oneandhalf {
+.key-oneandhalf {
   width: 75px;
 }
 
-.key__esc {
+.key-esc {
   background: red;
 }
 
-.key__enter {
+.key-enter {
   width: 112px;
 }
 
-.key__caps {
+.key-caps {
   width: 90px;
 }
 
-.key__shift-left {
+.key-shift-left {
   width: 110px;
 }
-.key__shift-right {
+.key-shift-right {
   width: 92px;
 }
 
-.key__spacebar {
+.key-spacebar {
   width: 300px;
 }
 
-.key__bottom-funct {
+.key-bottom-funct {
   width: 70px;
 }
 
-.key__arrow {
+.key-arrow {
   background: salmon;
 }
-
-.feather {
-  margin-top: 10px;
-}
-
 
 .color-picker-container {
   display: flex;
