@@ -63,13 +63,13 @@ export const ColorPicker: React.FC<Props> = (props) => {
 
   const renderCasePicker =  (
     <div className="color-picker-container">
-      <ColorComponent color={props.textColor} handleChange={handleChangeCaseColor} showAdvanced={showAdvanced} headerText="Case Color"/>
+      <ColorComponent color={props.caseColor} handleChange={handleChangeCaseColor} showAdvanced={showAdvanced} headerText="Case Color"/>
     </div>
   );
 
   const renderKeysPicker = (
     <div className="color-picker-container">
-      <ColorComponent color={props.textColor} handleChange={handleChangeMainColor} showAdvanced={showAdvanced} headerText="Keycap Color"/>
+      <ColorComponent color={props.mainKeyColor} handleChange={handleChangeMainColor} showAdvanced={showAdvanced} headerText="Keycap Color"/>
       <ColorComponent color={props.textColor} handleChange={handleChangeTextColor} showAdvanced={showAdvanced} headerText="Key Text Color"/>
     </div>
   )
@@ -79,7 +79,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
       <CheckboxToggle labelText="Different Modifier Colors" handleClick={props.setDiffMod} startChecked={props.diffMod}/>
       {props.diffMod ? (
         <MiscContainer>
-          <ColorComponent color={props.textColor} handleChange={handleChangeModColor} showAdvanced={showAdvanced} headerText="Modifier Key Color"/>
+          <ColorComponent color={props.modKeyColor} handleChange={handleChangeModColor} showAdvanced={showAdvanced} headerText="Modifier Key Color"/>
         </MiscContainer>
       ) : null}
     </div>
