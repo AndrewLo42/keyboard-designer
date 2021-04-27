@@ -22,7 +22,8 @@ const CaseColor = styled.div`
 `;
 
 const EscKey = styled.div`
-  background: ${props => props.different ? props.escColor : props.color}
+  background: ${props => props.different ? props.escColor : props.color};
+  color: ${props => props.textColor};
 `;
 
 const ModKey = styled.div`
@@ -62,7 +63,7 @@ export const KeyBoard: React.FC<Props> = (props) => {
       <KeyboardContainer ref={componentRef}>
         <CaseColor className="keyboard box"  color={props.caseColor} id="keyboard" >
           <div className="keyboard-row">
-            <EscKey className="key key-esc" color={props.mainKeyColor} textColor={props.textColor}>
+            <EscKey className="key key-esc" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} escColor={props.modKeyColor}>
               Esc
             </EscKey>
             <MainKey className="key key-symbols"  color={props.mainKeyColor} textColor={props.textColor}>
