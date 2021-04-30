@@ -10,6 +10,7 @@ interface Props {
   modKeyColor: string;
   diffMod: boolean;
   refs: AnyStyledComponent;
+  novelty: string;
 }
 
 const MainKey = styled.div`
@@ -24,11 +25,28 @@ const CaseColor = styled.div`
 const EscKey = styled.div`
   background: ${props => props.different ? props.escColor : props.color};
   color: ${props => props.textColor};
+  background-image: ${props =>
+    props.novel === "Fuego" && "url('./images/novelties/fuego.png')" ||
+    props.novel === "Ludwig" && "url('./images/novelties/lud7.0.png')" ||
+    "url('./images/novelties/esc.png')"
+  };
+  background-position: center;
+  background-size: cover;
 `;
+
 
 const ModKey = styled.div`
   background: ${props => props.different ? props.modColor : props.color};
   color: ${props => props.textColor};
+`;
+
+const SideKey = styled(ModKey)`
+  background-image: ${props =>
+    props.novel === "Fuego" && "url('./images/novelties/fuego.png')" ||
+    props.novel === "Ludwig" && "url('./images/novelties/lud7.0.png')"
+  };
+  background-position: center;
+  background-size: cover;
 `;
 
 const SaveButton = styled.div`
@@ -63,8 +81,8 @@ export const KeyBoard: React.FC<Props> = (props) => {
       <KeyboardContainer ref={componentRef}>
         <CaseColor className="keyboard box"  color={props.caseColor} id="keyboard" >
           <div className="keyboard-row">
-            <EscKey className="key key-esc" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} escColor={props.modKeyColor}>
-              Esc
+            <EscKey className="key key-esc" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} escColor={props.modKeyColor} novel={props.novelty}>
+
             </EscKey>
             <MainKey className="key key-symbols"  color={props.mainKeyColor} textColor={props.textColor}>
               ! <span> 1 </span>
@@ -105,9 +123,9 @@ export const KeyBoard: React.FC<Props> = (props) => {
             <ModKey className="key key-delete key__icon" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
               &#8592; Backspace
             </ModKey>
-            <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+            <SideKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor} novel={props.novelty}>
 
-            </ModKey>
+            </SideKey>
           </div>
 
           <div className="keyboard-row">
@@ -153,9 +171,9 @@ export const KeyBoard: React.FC<Props> = (props) => {
             <MainKey className="key key-symbols key-oneandhalf" color={props.mainKeyColor} textColor={props.textColor}>
               | <span> \ </span>
             </MainKey>
-            <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+            <SideKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor} novel={props.novelty}>
 
-            </ModKey>
+            </SideKey>
           </div>
 
           <div className="keyboard-row">
@@ -198,9 +216,9 @@ export const KeyBoard: React.FC<Props> = (props) => {
             <ModKey className="key key-enter" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
               Enter
             </ModKey>
-            <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+            <SideKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor} novel={props.novelty}>
 
-            </ModKey>
+            </SideKey>
           </div>
 
           <div className="keyboard-row">
@@ -246,9 +264,9 @@ export const KeyBoard: React.FC<Props> = (props) => {
               &#8593;
               {/* up arrow */}
             </MainKey>
-            <ModKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor}>
+            <SideKey className="key" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} modColor={props.modKeyColor} novel={props.novelty}>
 
-            </ModKey>
+            </SideKey>
           </div>
 
           <div className="keyboard-row">

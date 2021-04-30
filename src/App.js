@@ -10,6 +10,8 @@ function App() {
   const [textColor, setTextColor] = useState("#000000");
   const [modKeyColor, setModColor] = useState("#F1F1F1");
   const [diffMod, setDiffMod] = useState(false);
+  const [novelty, setNovelty] = useState("");
+
 
   return (
     <div className="App">
@@ -23,6 +25,7 @@ function App() {
           textColor={textColor}
           modKeyColor={modKeyColor}
           diffMod={diffMod}
+          novelty={novelty}
         />
         <ColorPicker
           caseColor={caseColor}
@@ -35,6 +38,8 @@ function App() {
           setModColor={setModColor}
           diffMod={diffMod}
           setDiffMod={setDiffMod}
+          novelty={novelty}
+          setNovelty={setNovelty}
         />
       </main>
       <Footer />

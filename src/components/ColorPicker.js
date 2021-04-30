@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CheckboxToggle from './CheckBox';
 import Switch from './ToggleSwitch';
 import ColorComponent from './ColorChanger';
+import NoveltySelect from './NoveltySelect';
 
 interface Props {
   caseColor: string;
@@ -10,11 +11,13 @@ interface Props {
   textColor: string;
   modKeyColor: string;
   diffMod: boolean;
+  novelty: string;
   setCaseColor: (color: string) => void;
   setMainKeyColor: (color: string) => void;
   setTextColor: (color: string) => void;
   setModColor: (color: string) => void;
   setDiffMod: (toggle: boolean) => void;
+  setNovelty: (novelty: string) => void;
 }
 
   const OptionContainer = styled.div`
@@ -37,7 +40,10 @@ interface Props {
     }
   `;
   const MiscContainer = styled.div`
-    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
   `;
 
 export const ColorPicker: React.FC<Props> = (props) => {
@@ -80,6 +86,7 @@ export const ColorPicker: React.FC<Props> = (props) => {
       {props.diffMod ? (
         <MiscContainer>
           <ColorComponent color={props.modKeyColor} handleChange={handleChangeModColor} showAdvanced={showAdvanced} headerText="Modifier Key Color"/>
+          <NoveltySelect novelty={props.novelty} setNovelty={props.setNovelty}/>
         </MiscContainer>
       ) : null}
     </div>
