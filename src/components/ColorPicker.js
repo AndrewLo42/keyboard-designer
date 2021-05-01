@@ -42,7 +42,7 @@ interface Props {
   const MiscContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 30px;
   `;
 

@@ -32,23 +32,33 @@ const NovelKey = styled.div`
   background-image: ${props => props.novel};
   background-position: center;
   background-size: contain;
-  border: .5px solid black;
+  border: ${props => props.selected ? '1px solid #EE9C44' :'1px solid gray'};
   padding: 2px;
   margin: 2.5px;
+  position: relative;
+  transition: all 100ms ease-in-out;
+  &:hover {
+    filter: opacity(50%);
+    border: 1px solid #C3D8D7;
+  }
+`;
+
+const PickContainer = styled.div`
+  width: 376px;
 `;
 
 const NoveltySelect: React.FC<Props> = (props) => {
   return(
-    <div>
+    <PickContainer >
       <NovelHeader>
         Choose a Novelty!
       </NovelHeader>
       <KeyContainer>
-        <NovelKey onClick={() => props.setNovelty('')}>None</NovelKey>
-        <NovelKey novel='url("./images/novelties/fuego.png")' onClick={() => props.setNovelty('Fuego')}></NovelKey>
-        <NovelKey novel='url("./images/novelties/lud7.0.png")' onClick={() => props.setNovelty('Ludwig')}></NovelKey>
+        <NovelKey onClick={() => props.setNovelty('')} selected={props.novelty === '' ? true : false}>None</NovelKey>
+        <NovelKey novel='url("./images/novelties/fuego.png")' onClick={() => props.setNovelty('Fuego')} selected={props.novelty === 'Fuego' ? true : false}></NovelKey>
+        <NovelKey novel='url("./images/novelties/lud7.0.png")' onClick={() => props.setNovelty('Ludwig')} selected={props.novelty === 'Ludwig' ? true : false}></NovelKey>
       </KeyContainer>
-    </div>
+    </PickContainer>
 
   );
 }
