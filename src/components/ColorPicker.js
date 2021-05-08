@@ -4,6 +4,7 @@ import CheckboxToggle from './CheckBox';
 import Switch from './ToggleSwitch';
 import ColorComponent from './ColorChanger';
 import NoveltySelect from './NoveltySelect';
+import CaseRGB from './CaseRGB';
 
 interface Props {
   caseColor: string;
@@ -12,12 +13,14 @@ interface Props {
   modKeyColor: string;
   diffMod: boolean;
   novelty: string;
+  shadow: string;
   setCaseColor: (color: string) => void;
   setMainKeyColor: (color: string) => void;
   setTextColor: (color: string) => void;
   setModColor: (color: string) => void;
   setDiffMod: (toggle: boolean) => void;
   setNovelty: (novelty: string) => void;
+  setShadow: (shadow: string) => void;
 }
 
   const OptionContainer = styled.div`
@@ -82,9 +85,10 @@ export const ColorPicker: React.FC<Props> = (props) => {
 
   const renderMiscPicker = (
     <div className="color-picker-container col">
-      <CheckboxToggle labelText="Different Modifier Colors" handleClick={props.setDiffMod} startChecked={props.diffMod}/>
+      <CheckboxToggle labelText="Enable Other Options" handleClick={props.setDiffMod} startChecked={props.diffMod}/>
       {props.diffMod ? (
         <MiscContainer>
+          <CaseRGB shadow={props.shadow} setShadow={props.setShadow}/>
           <ColorComponent color={props.modKeyColor} handleChange={handleChangeModColor} showAdvanced={showAdvanced} headerText="Modifier Key Color"/>
           <NoveltySelect novelty={props.novelty} setNovelty={props.setNovelty}/>
         </MiscContainer>
