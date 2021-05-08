@@ -11,7 +11,7 @@ function App() {
   const [modKeyColor, setModColor] = useState("#F1F1F1");
   const [diffMod, setDiffMod] = useState(false);
   const [novelty, setNovelty] = useState("");
-
+  const [shadow, setShadow] = useState("box");
 
   return (
     <div className="App">
@@ -26,6 +26,7 @@ function App() {
           modKeyColor={modKeyColor}
           diffMod={diffMod}
           novelty={novelty}
+          shadow={shadow}
         />
         <ColorPicker
           caseColor={caseColor}
@@ -40,6 +41,8 @@ function App() {
           setDiffMod={setDiffMod}
           novelty={novelty}
           setNovelty={setNovelty}
+          shadow={shadow}
+          setShadow={setShadow}
         />
       </main>
       <Footer />

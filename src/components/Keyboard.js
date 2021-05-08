@@ -11,6 +11,7 @@ interface Props {
   diffMod: boolean;
   refs: AnyStyledComponent;
   novelty: string;
+  shadow: string;
 }
 
 const MainKey = styled.div`
@@ -79,7 +80,7 @@ export const KeyBoard: React.FC<Props> = (props) => {
         Export As PNG
       </SaveButton>
       <KeyboardContainer ref={componentRef}>
-        <CaseColor className="keyboard box"  color={props.caseColor} id="keyboard" >
+        <CaseColor className={`keyboard ${props.shadow}`}  color={props.caseColor} id="keyboard" >
           <div className="keyboard-row">
             <EscKey className="key key-esc" color={props.mainKeyColor} textColor={props.textColor} different={props.diffMod} escColor={props.modKeyColor} novel={props.novelty}>
 
