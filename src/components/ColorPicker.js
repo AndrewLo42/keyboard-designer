@@ -70,6 +70,15 @@ export const ColorPicker: React.FC<Props> = (props) => {
     props.setModColor(newColor.hex);
   }
 
+  const handleResetAll = () => {
+    props.setCaseColor("#000000");
+    props.setTextColor("#000000");
+    props.setModColor("#F1F1F1");
+    props.setDiffMod(false);
+    props.setNovelty("");
+    props.setShadow("box");
+  }
+
   const renderCasePicker =  (
     <div className="color-picker-container">
       <ColorComponent color={props.caseColor} handleChange={handleChangeCaseColor} showAdvanced={showAdvanced} headerText="Case Color"/>
@@ -93,6 +102,9 @@ export const ColorPicker: React.FC<Props> = (props) => {
           <NoveltySelect novelty={props.novelty} setNovelty={props.setNovelty}/>
         </MiscContainer>
       ) : null}
+      <OptionContainer>
+        <OptionButton onClick={() => handleResetAll()} >Reset</OptionButton>
+      </OptionContainer>
     </div>
   )
 
