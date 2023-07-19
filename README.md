@@ -13,7 +13,8 @@
 - User can download their design as a png 
 - User can interact with color pickers or input a hex code 
 - User can toggle between basic color pickers and more advanced pickers
-- User can choose to have different modifier colors or not 
+- User can choose to have different modifier colors or not
+- User can reset all their choices with a button
 
 # Future Features 
 - User can choose a switch and hear what it sounds like by typing 
