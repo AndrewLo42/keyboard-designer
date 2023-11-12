@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/keyboard-designer/static/css/main.3c0de6f0.css",
+    "main.js": "/keyboard-designer/static/js/main.065f29a8.js",
+    "static/js/787.7db09923.chunk.js": "/keyboard-designer/static/js/787.7db09923.chunk.js",
+    "index.html": "/keyboard-designer/index.html",
+    "main.3c0de6f0.css.map": "/keyboard-designer/static/css/main.3c0de6f0.css.map",
+    "main.065f29a8.js.map": "/keyboard-designer/static/js/main.065f29a8.js.map",
+    "787.7db09923.chunk.js.map": "/keyboard-designer/static/js/787.7db09923.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c0de6f0.css",
+    "static/js/main.065f29a8.js"
+  ]
+}
