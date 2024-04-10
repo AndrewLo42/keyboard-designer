@@ -17,7 +17,8 @@
 - User can reset all their choices with a button
 
 # Future Features 
-- User can choose a switch and hear what it sounds like by typing 
+- User can choose a switch and hear what it sounds like by typing
+  - User can also see detailed information about a particular switch
 - User can add novelty keys to the keyboard 
 - User can have more color customization on certain keys
 - User can choose a background/deskmat for the keeb
